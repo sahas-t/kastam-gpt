@@ -18,8 +18,9 @@ openai.api_key = st.secrets['openapi']['api_key']
 COMPLETIONS_MODEL =   "text-davinci-003" # "text-curie-001" 
 EMBEDDING_MODEL = "text-embedding-ada-002"
 
-parent_path = pathlib.Path(__file__).parent.parent.resolve()
+parent_path = pathlib.Path(__file__).parent.resolve()
 data_path = os.path.join(parent_path, "data")
+olectra_transcript_raw_file = 'olectra_call_transcript.csv'
 olectra_transcript_embedding_csv_filename =  "olectra_transcript_embedding.csv"
 
 
@@ -33,7 +34,7 @@ def load_data(file_name :str, header :int = 0 ):
     return data
 
 data_load_state = st.text("Loading data...")
-df = load_data('olectra_call_transcript.csv')
+df = load_data(olectra_transcript_raw_file)
 data_load_state.text("Loading data...done!") 
 df.set_index(['title', 'content'])
 # st.write(f"{len(df)} rows in the data.")
