@@ -131,3 +131,7 @@ dmypy.json
 
 # Streamlist
 *.toml
+.streamlit/
+
+#Others
+.DS_Store
